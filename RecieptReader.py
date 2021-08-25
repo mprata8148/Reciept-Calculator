@@ -193,6 +193,7 @@ img = boximg(img)
 small_img = boximg(small_img)
 
 
+
 #Finding Number of Items 
 #TotalItems = FindTotal(img)
 #print("The total Number of Items is:",TotalItems)
