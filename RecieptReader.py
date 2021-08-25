@@ -188,7 +188,6 @@ print("Number of Items is:", NumofItems)
 Prices = PriceofItems(WORDLIST,NumofItems,Total)
 ItemNames = NameofItems(WORDLIST,Prices)
 Totals = Questionare(WORDLIST,Prices,NumofItems, ItemNames)
-
 #drawing boxes
 img = boximg(img)
 small_img = boximg(small_img)
