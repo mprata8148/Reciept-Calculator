@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 import pytesseract
 
-img = cv.imread('Costco0723.jpeg')
+img = cv.imread('Costco092021.jpeg') # Reciept Image name or Path
 def resize_image(img,scale=0.75):
     width = int (img.shape[1]*scale) 
     height = int (img.shape[0]*scale)
@@ -181,7 +181,7 @@ info = pytesseract.image_to_string(img)
 print("Before Wordlist")
 WORDLIST = OrganizeInfo(info)
 
-NumofItems = WORDLIST[WORDLIST.index('SOLD:')+11]
+NumofItems = WORDLIST[WORDLIST.index('SOLD:')+1]
 Total = float(WORDLIST[WORDLIST.index('SUBTOTAL')+1]) + float(WORDLIST[WORDLIST.index('TAX')+1])
 print("The Total of this trip was: ",Total)
 print("Number of Items is:", NumofItems)

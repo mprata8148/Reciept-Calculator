@@ -1,7 +1,8 @@
 import cv2 as cv
 import numpy as np
 import pytesseract
-img = cv.imread('Costco0723.jpeg')
+path = r"C:\Users\Matthew Prata\source\repos\Python\Reciept.jpeg"
+img = cv.imread(path)
 def resize_image(img,scale=0.75):
     width = int (img.shape[1]*scale) 
     height = int (img.shape[0]*scale)
@@ -42,10 +43,10 @@ def invimg(img,avg_color):
                 
           
             #if color[0] < 116 and color[1] < 90 and color[2] < 100:
-                color = [0,0,0]
+                color = [255,255,255]
            
             else: 
-                color = [255,255,255]
+                color = [0,0,0]
             img[j,i] = color
     #img = abs(img-255)
     print("Returning the inverted image")
@@ -180,7 +181,8 @@ info = pytesseract.image_to_string(img)
 #grabs information from image
 print(info)
 WORDLIST = OrganizeInfo(info)
-'''
+#comment Here
+
 NumofItems = WORDLIST[WORDLIST.index('SOLD')+2]
 Total = float(WORDLIST[WORDLIST.index('SUBTOTAL')+1]) + float(WORDLIST[WORDLIST.index('TAX')+1])
 print("The Total of this trip was: ",Total)
@@ -189,7 +191,8 @@ Prices = PriceofItems(WORDLIST,NumofItems,Total)
 ItemNames = NameofItems(WORDLIST,Prices)
 
 Totals = Questionare(WORDLIST,Prices,NumofItems, ItemNames)
-'''
+#End Comment
+
 #drawing boxes
 img = boximg(img)
 small_img = boximg(small_img)
